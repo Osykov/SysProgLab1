@@ -1,7 +1,7 @@
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -40,15 +40,15 @@ class Solution {
 	public void process() {
 	
 		long start = System.currentTimeMillis();
-		FileInputStream fis = null;
+		FileReader fis = null;
 		try {
-			fis = new FileInputStream(inputfile);
+			fis = new FileReader(inputfile);
 		} catch (FileNotFoundException e) {
 			System.err.println("Input file is not found.");
 			return;
 		}
 		final int bufsize = 500 * 1024;
-		byte[] buf = new byte[bufsize];
+		char[] buf = new char[bufsize];
 		int len;
 		int count = 0;
 		StringBuilder sb = new StringBuilder("");
